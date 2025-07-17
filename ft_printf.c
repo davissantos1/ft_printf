@@ -12,34 +12,33 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_aux(const char letter, va_list list)
+static int	ft_printf_aux(const char letter, va_list *list)
 {
 	int	count;
 
 	count = 0;
-	if (format[i] == 'c')
-		count += ft_putchar(va_arg(list, int));
-	if (format[i] == 's')
-		count += ft_putstr(va_arg(list, char *));
-	if (format[i] == 'p')
-		count += ft_puthex((unsigned long)va_arg(list, void *), 0);
-	if (format[i] == 'd')
-		count += ft_putnbr(va_arg(list, int));
-	if (format[i] == 'i')
-		count += ft_putnbr(va_arg(list, int));
-	if (format[i] == 'u')
-		count += ft_putnbr_unsigned(va_arg(list, unsigned int), 0);
-	if (format[i] == 'x')
-		count += ft_puthex(va_arg(list, unsigned int), 0);
-	if (format[i] == 'X')
-		count += ft_puthex(va_arg(list, unsigned int), 1);
-	if (format[i] == '%')
+	if (letter == 'c')
+		count += ft_putchar(va_arg(*list, int));
+	if (letter == 's')
+		count += ft_putstr(va_arg(*list, char *));
+	if (letter == 'p')
+		count += ft_puthex((unsigned long)va_arg(*list, void *), 0);
+	if (letter == 'd' || letter == 'i')
+		count += ft_putnbr(va_arg(*list, int));
+	if (letter == 'u')
+		count += ft_putnbr_unsigned(va_arg(*list, unsigned int), 0);
+	if (letter == 'x')
+		count += ft_puthex(va_arg(*list, unsigned int), 0);
+	if (letter == 'X')
+		count += ft_puthex(va_arg(*list, unsigned int), 1);
+	if (letter == '%')
 		count += ft_putchar('%');
+	return (count);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	list;
+	va_list		list;
 	int		count;
 	int		i;
 
@@ -48,8 +47,11 @@ int	ft_printf(const char *format, ...)
 	va_start(list, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
-			count += ft_printf_aux(format[i], list);
+		if (format[i] == '%' && format[i + 1])
+		{
+			i++;
+			count += ft_printf_aux(format[i], &list);
+		}
 		else
 			count += ft_putchar(format[i]);
 		i++;
