@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 12:33:55 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/14 22:31:54 by dasimoes         ###   ########.fr       */
+/*   Created: 2025/07/09 22:14:27 by dasimoes          #+#    #+#             */
+/*   Updated: 2025/07/10 10:59:35 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// External libraries
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-
-// Prototypes
-int	ft_diglen(int nb);
-int	ft_strlen(const char *s);
-int	ft_printf(const char *format ...);
-int	ft_putstr(char *str);
-int	ft_putchar(char c);
-int	ft_puthex(unsigned int dec, int cap);
-int	ft_putnbr(int nb);
-int	ft_putnbr_unsigned(unsigned int nb);
 int	ft_toupper(int c)
-
-#endif
+{
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}

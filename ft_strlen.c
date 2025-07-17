@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 22:29:28 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/14 22:30:23 by dasimoes         ###   ########.fr       */
+/*   Created: 2025/07/08 11:47:29 by dasimoes          #+#    #+#             */
+/*   Updated: 2025/07/16 22:14:48 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_strlen(const char *s)
 {
-	write(1, &c, 1);
-	return (1);
+	int	size;
+
+	size = 0;
+	while (s[size])
+		size++;
+	return (size);
 }
