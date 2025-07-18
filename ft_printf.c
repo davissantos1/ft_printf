@@ -6,7 +6,7 @@
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:59:00 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/17 17:58:41 by dasimoes         ###   ########.fr       */
+/*   Updated: 2025/07/17 23:42:32 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static int	ft_printf_aux(const char letter, va_list *list)
 	if (letter == 's')
 		count += ft_putstr(va_arg(*list, char *));
 	if (letter == 'p')
-		count += ft_puthex((unsigned long)va_arg(*list, void *), 0);
+		count += ft_putptr((unsigned long long)va_arg(*list, void *));
 	if (letter == 'd' || letter == 'i')
 		count += ft_putnbr(va_arg(*list, int));
 	if (letter == 'u')
-		count += ft_putnbr_unsigned(va_arg(*list, unsigned int), 0);
+		count += ft_putnbr_unsigned(va_arg(*list, int));
 	if (letter == 'x')
 		count += ft_puthex(va_arg(*list, unsigned int), 0);
 	if (letter == 'X')
