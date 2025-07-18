@@ -6,7 +6,7 @@
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:59:00 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/16 23:03:40 by dasimoes         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:58:41 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static int	ft_printf_aux(const char letter, va_list *list)
 int	ft_printf(const char *format, ...)
 {
 	va_list		list;
-	int		count;
-	int		i;
+	int			count;
+	int			i;
 
 	i = 0;
 	count = 0;

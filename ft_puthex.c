@@ -1,40 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/17 17:52:56 by dasimoes          #+#    #+#             */
+/*   Updated: 2025/07/17 21:07:12 by dasimoes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_puthex_size(unsigned int dec)
+static void ft_printhex(unsigned int dec)
+{
+	if (dec > 15)
+		ft_printhex(dec / 16);
+	write(1, &"0123456789abcdef"[dec % 16], 1);	
+}
+
+static void ft_printhex_cap(unsigned int dec)
+{
+	if (dec > 15)
+		ft_printhex_cap(dec / 16);
+	write(1, &"0123456789ABCDEF"[dec % 16], 1);	
+}
+
+static int ft_dighex(unsigned int dec)
 {
 	int count;
 
-	count = 1;
-	
-	while (dec > 15)
+	count = 0;
+	if (!dec)
+		return (1);
+	while (dec)
 	{
 		dec /= 16;
-		count ++;
+		count++;
+	}
 	return (count);
 }
 
-static	char	*ft_hexconv(char *hex)
+int	ft_puthex(unsigned int dec, int cap)
 {
-	
-
-int	ft_puthex(unsigned int dec, int cap);
-{
-	char 	*hex;
-	int	size;
-
-	hex = (char *)malloc(ft_puthex_size(dec) * sizeof(char));
-	if(!hex)
-		return (NULL);
 	if (cap)
 	{
-		while (hex[i]
-		{
-		}
+		ft_printhex_cap(dec);
+		return (ft_dighex(dec));
 	}
-	else
-	{}
-	size = ft_strlen(hex);
-	free(hex);
-	return (size);
+	ft_printhex(dec);
+	return (ft_dighex(dec));
 }
