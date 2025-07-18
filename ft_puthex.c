@@ -6,7 +6,7 @@
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:52:56 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/17 23:03:29 by dasimoes         ###   ########.fr       */
+/*   Updated: 2025/07/18 20:04:31 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void	ft_printhex(unsigned long long dec)
 {
 	if (dec > 15)
-		ft_printhex(dec / 16); 
-	write(1, &"0123456789abcdef"[dec % 16], 1); 
+		ft_printhex(dec / 16);
+	write(1, &"0123456789abcdef"[dec % 16], 1);
 }
 
 static void	ft_printhex_cap(unsigned long long dec)
