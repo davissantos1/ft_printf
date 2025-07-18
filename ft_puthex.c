@@ -6,29 +6,29 @@
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:52:56 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/17 21:07:12 by dasimoes         ###   ########.fr       */
+/*   Updated: 2025/07/17 21:11:37 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_printhex(unsigned int dec)
+static void	ft_printhex(unsigned int dec)
 {
 	if (dec > 15)
 		ft_printhex(dec / 16);
-	write(1, &"0123456789abcdef"[dec % 16], 1);	
+	write(1, &"0123456789abcdef"[dec % 16], 1);
 }
 
-static void ft_printhex_cap(unsigned int dec)
+static void	ft_printhex_cap(unsigned int dec)
 {
 	if (dec > 15)
 		ft_printhex_cap(dec / 16);
-	write(1, &"0123456789ABCDEF"[dec % 16], 1);	
+	write(1, &"0123456789ABCDEF"[dec % 16], 1);
 }
 
-static int ft_dighex(unsigned int dec)
+static int	ft_dighex(unsigned int dec)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (!dec)

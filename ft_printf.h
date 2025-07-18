@@ -6,7 +6,7 @@
 /*   By: dasimoes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:33:55 by dasimoes          #+#    #+#             */
-/*   Updated: 2025/07/17 17:54:14 by dasimoes         ###   ########.fr       */
+/*   Updated: 2025/07/17 21:09:51 by dasimoes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 // Prototypes
 int	ft_diglen(int nb);
 int	ft_strlen(const char *s);
-int	ft_printf(const char *format ...);
+int	ft_printf(const char *format, ...);
 int	ft_putstr(char *str);
 int	ft_putchar(char c);
 int	ft_puthex(unsigned int dec, int cap);
